@@ -43,6 +43,9 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startTIme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8C7-kU-P3v"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vuu-8c-xgT">
                                 <rect key="frame" x="175" y="406" width="250" height="125"/>
@@ -55,6 +58,9 @@
                                 <state key="normal" title="STOP">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kr7-P3-LYj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -67,6 +73,11 @@
                             <constraint firstItem="XZt-JF-qva" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qZ2-ct-vCg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="iiZ-Ht-BfN" id="UjM-m9-aHF"/>
+                        <outlet property="stopButton" destination="Vuu-8c-xgT" id="Pio-bc-uoz"/>
+                        <outlet property="timeLabel" destination="XZt-JF-qva" id="Wz3-Ba-Tez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
