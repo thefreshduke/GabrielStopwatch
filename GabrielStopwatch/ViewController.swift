@@ -10,28 +10,52 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var timer = NSTimer()
+    var counter = 0
+    
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     
     @IBAction func startTIme(sender: AnyObject) {
-        timeLabel.text = "start"
+        validateTimer()
+        alternateButtonStates()
     }
     
-    @IBAction func stopButton(sender: AnyObject) {
-        timeLabel.text = "stop"
+    @IBAction func stopTime(sender: AnyObject) {
+        timer.invalidate()
+        alternateButtonStates()
+        counter = 0
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        stopButton.hidden = true
+        stopButton.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func validateTimer() {
+        let repeatingFunction = #selector(ViewController.updateTime)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: repeatingFunction, userInfo: nil, repeats: true)
+    }
+    
+    func updateTime() {
+        counter += 1
+        timeLabel.text = "\(counter)"
+    }
+    
+    func alternateButtonStates() {
+        startButton.hidden = !startButton.hidden
+        startButton.enabled = !startButton.enabled
+        stopButton.hidden = !stopButton.hidden
+        stopButton.enabled = !stopButton.enabled
+    }
 }
 
